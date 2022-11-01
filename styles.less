@@ -38,6 +38,7 @@ p {
 
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -48,7 +49,7 @@ p {
         background-position: -20vw -70vh, 50vw 50vh;
     }
     @media @mobile {
-        background-position: -50% -35vh, 5vw 5vh;
+        background-position: -20vw -35vh, 15vw 15vh;
         padding: 0 1.5rem;
     }
 }
@@ -130,6 +131,11 @@ p {
     text-align: center; 
 }
 .attribution a { 
-    color: hsl(228, 45%, 44%);
+    color: white;
+    text-decoration: none;
+    color: #2B7DFA;
+      
+    &:hover {
+    text-decoration: underline;
+    }
 }
-
