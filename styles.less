@@ -22,6 +22,12 @@ html {
 body {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: @dark-cyan;
 }
 
 h1 {
@@ -41,37 +47,20 @@ p {
     color: @dark-gray;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: @dark-cyan;
-    background-image: url(images/bg-pattern-top.svg), url(images/bg-pattern-bottom.svg);
-    background-repeat: no-repeat, no-repeat;
-    @media @desktop {
-        background-position: -20vw -70vh, 50vw 50vh;
-    }
-    @media @mobile {
-        background-position: -20vw -35vh, 15vw 15vh;
-        padding: 0 1.5rem;
-    }
-}
-
 .card {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 2fr 2fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    background-image: url(images/bg-pattern-card.svg);
-    max-width: 22.5rem;
-    width: 100%;
+    min-width: 22.5rem;
+    width: auto;
     max-height: 22.5rem;
-    height: 100%;
     border-radius: 1rem;
     overflow: hidden;
+    background-image: url(images/bg-pattern-card.svg);
     box-shadow: 6px 8px 100px 10px rgba(0, 0, 0, 0.1);
     span {
         margin-left: 0.5rem;
@@ -131,14 +120,33 @@ p {
     }
 }
 
+.background-img-top,
+.background-img-bottom {
+    z-index: 1;
+    position: fixed;
+}
+
+.background-img-top {
+    bottom: 50%;
+    right: 50%;
+}
+
+.background-img-bottom {
+    top: 50%;
+    left: 50%
+}
+
 .attribution { 
     font-size: 11px; 
-    text-align: center; 
+    text-align: center;
+}
+
+.attribution p {
+    color: white; 
 }
 .attribution a { 
-    color: white;
     text-decoration: none;
-    color: #2B7DFA;
+    color: white;
       
     &:hover {
     text-decoration: underline;
@@ -154,4 +162,4 @@ p {
     overflow: hidden;
     clip: rect(0,0,0,0);
     border: 0;
-  }
+}
